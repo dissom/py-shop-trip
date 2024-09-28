@@ -12,7 +12,7 @@ class Car:
 
     def __str__(self) -> str:
         return (
-            f"Car ({self.brand, self.fuel_consumption})"
+            f"Car ({self.brand}, {self.fuel_consumption})"
         )
 
     def trip_cost(

@@ -27,8 +27,16 @@ class Customer:
             f"{self.location}, {self.money}, {self.car})"
         )
 
-    def travel_to_shop(self, shop: "Shop", fuel_price: float) -> float:
-        return 2 * self.car.trip_cost(self.location, shop.location, fuel_price)
+    def travel_to_shop(
+        self,
+        shop: "Shop",
+        fuel_price: float
+    ) -> float:
+        return 2 * self.car.trip_cost(
+            self.location,
+            shop.location,
+            fuel_price
+        )
 
     def make_purchase(self, shop: "Shop") -> float:
 
@@ -39,7 +47,7 @@ class Customer:
 
     def find_cheapest_shop(
         self,
-        shops: List,
+        shops: List["Shop"],
         fuel_price: float
     ) -> None:
         cheapest_shop = None
@@ -58,8 +66,7 @@ class Customer:
                 cheapest_shop = shop
                 min_cost = total_cost
         if cheapest_shop:
-            print(f"{self.name} rides to {cheapest_shop.name}")
-            print()
+            print(f"{self.name} rides to {cheapest_shop.name}\n")
             self.money = round(self.money - min_cost, 2)
             cheapest_shop.check(self)
             print(
